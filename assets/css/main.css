@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1656,3 +1659,23 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+		/* === Custom styles for project summaries and navigation === */
+.project-summary {
+  background: rgba(34, 45, 54, 0.9);
+  padding: 1.5em;
+  margin-bottom: 2em;
+  border-radius: 4px;
+  border: 1px solid #3d4a53;
+}
+.project-summary h3 {
+  margin-top: 0;
+  color: #fff;
+}
+.work-nav {
+  text-align: right;
+  margin-top: 2em;
+}
+.button:hover {
+  background: #4d5c6e;
+}

@@ -388,14 +388,107 @@
 		// Initialize.
 
 			// Hide main, articles.
-				$main.hide();
-				$main_articles.hide();
-
+			$main.hide();
+			$main_articles.hide();
+			
 			// Initial article.
-				if (location.hash != ''
-				&&	location.hash != '#')
-					$window.on('load', function() {
-						$main._show(location.hash.substr(1), true);
-					});
+			if (location.hash != '' && location.hash != '#')
+			  $window.on('load', function() {
+				$main._show(location.hash.substr(1), true);
+			  });
+			
+			// OUR CUSTOM PAGINATION CODE STARTS HERE
+			$(function() {
+
+				// --- BEGIN CUSTOM PAGINATION LOGIC ---
+				const workPagesIds = ['work', 'workpage2', 'workpage3', 'workpage4', 'workpage5', 'workpage6'];
+				// This will store references to the actual article elements
+				let workPageArticles = {}; 
+				workPagesIds.forEach(id => {
+					const el = document.getElementById(id);
+					if (el) workPageArticles[id] = el;
+				});
+
+				let currentWorkPageIndex = 0;
+
+				// Function to update the content and nav buttons of the CURRENTLY VISIBLE work article
+				function displayContentForWorkPage(pageIndex) {
+					console.log('displayContentForWorkPage for index:', pageIndex);
+					currentWorkPageIndex = pageIndex;
+					const activeArticleId = workPagesIds[pageIndex];
+					const activeArticleElement = workPageArticles[activeArticleId];
+
+					if (!activeArticleElement) {
+						console.error('Active article element not found for id:', activeArticleId);
+						return;
+					}
+
+					// --- This is where you would hide/show specific project items --- 
+					// --- if each article (work, workpage2) itself contained ALL project items --- 
+					// --- and you were just showing/hiding them. --- 
+					// --- However, your HTML is structured so each article IS a page. --- 
+					// --- So, the template's _show/_hide already handles showing the correct article. --- 
+					// --- Our main job here is to update the Next/Prev buttons in the active article. ---
+
+					// Update Next/Prev buttons within the activeArticleElement
+					const prevButton = activeArticleElement.querySelector('.prev');
+					const nextButton = activeArticleElement.querySelector('.next');
+
+					if (prevButton) {
+						if (pageIndex > 0) {
+							prevButton.style.display = ''; // Show button
+							prevButton.setAttribute('href', '#' + workPagesIds[pageIndex - 1]);
+							console.log('Prev button href set to:', '#' + workPagesIds[pageIndex - 1]);
+						} else {
+							prevButton.style.display = 'none'; // Hide on first page
+							console.log('Prev button hidden');
+						}
+					}
+
+					if (nextButton) {
+						if (pageIndex < workPagesIds.length - 1) {
+							nextButton.style.display = ''; // Show button
+							nextButton.setAttribute('href', '#' + workPagesIds[pageIndex + 1]);
+							console.log('Next button href set to:', '#' + workPagesIds[pageIndex + 1]);
+						} else {
+							nextButton.style.display = 'none'; // Hide on last page
+							console.log('Next button hidden');
+						}
+					}
+					console.log('Buttons updated for article:', activeArticleId);
+				}
+
+				function handleHashChange() {
+					const hash = window.location.hash.substring(1);
+					console.log('Hash changed to:', hash);
+					const pageIndex = workPagesIds.indexOf(hash);
+
+					if (pageIndex !== -1) {
+						// Check if the hash corresponds to one of our work pages
+						console.log('Work page detected by hash:', hash, 'Index:', pageIndex);
+						displayContentForWorkPage(pageIndex);
+					} else {
+						// If the hash is not a work page (e.g., #intro, #contact), 
+						// we don't need to do pagination specific logic.
+						// We might want to hide all pagination buttons if no work article is active.
+						// For now, this is handled by the fact that displayContentForWorkPage
+						// only runs if a work page hash is matched.
+						console.log('Hash is not a work page:', hash);
+					}
+				}
+
+				// Initial setup on page load
+				handleHashChange(); 
+
+				// Listen for hash changes
+				$(window).on('hashchange', handleHashChange);
+
+				// REMOVE PREVIOUS CUSTOM CLICK HANDLERS
+				// $(document.body).off('click', '.next');
+				// $(document.body).off('click', '.prev');
+
+				console.log('Custom pagination logic initialized. Listening for hash changes.');
+
+			});
 
 })(jQuery);
