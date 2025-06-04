@@ -1679,3 +1679,72 @@ input, select, textarea {
 .button:hover {
   background: #4d5c6e;
 }
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em; /* Space between skill items */
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1em; /* Space between skill name, bar, and years */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.skill-name {
+    flex-basis: 200px; /* Adjust as needed for the longest skill name */
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.skill-bar-container {
+    flex-grow: 1;
+    background-color: #eee; /* Light grey background for the bar container */
+    border-radius: 5px;
+    height: 20px; /* Height of the skill bar */
+    overflow: hidden; /* Ensures the inner bar doesn't overflow the rounded corners */
+}
+
+.skill-bar {
+    background-color: #4CAF50; /* Green color for the skill bar - change as desired */
+    height: 100%;
+    border-radius: 5px;
+    text-align: right;
+    padding-right: 5px; /* Optional: if you want text inside the bar */
+    color: white; /* Optional: text color if you put text inside */
+    transition: width 0.5s ease-in-out; /* Smooth transition for width changes */
+}
+
+.skill-years {
+    min-width: 50px; /* Ensure space for 'X Years' text */
+    text-align: left;
+}
+
+.skill-category-label {
+    font-weight: bold;
+    margin-top: 1em;      /* Add some space above the category label */
+    margin-bottom: 0.5em; /* Add some space below the category label */
+    flex-basis: 100%;     /* Make it take the full width */
+}
+
+.sub-skill .skill-name {
+    padding-left: 1.5em; /* Indent sub-skill names */
+    /* Optionally, adjust flex-basis if needed for alignment */
+}
+
+/* Optional: Adjustments for smaller screens if needed */
+@media (max-width: 736px) { /* This breakpoint is common in the existing main.css */
+    .skill-name {
+        flex-basis: 100%; /* Skill name takes full width */
+        margin-bottom: 0.5em;
+    }
+    .skill-item {
+        gap: 0.5em;
+    }
+    .sub-skill .skill-name {
+        padding-left: 1em; /* Adjust indentation for smaller screens if needed */
+    }
+}
