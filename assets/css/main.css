@@ -720,6 +720,14 @@ input, select, textarea {
 
 		}
 
+#intro .image.main img {
+    width: 50%;
+    height: auto; /* To maintain aspect ratio */
+    display: block; /* To allow margin auto to work if you want to center it */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* List */
 
 	ol {
@@ -1345,15 +1353,16 @@ input, select, textarea {
 			padding-left: 0;
 			border: solid 1px #ffffff;
 			border-radius: 4px;
+			overflow: hidden; /* Added this line */
 		}
 
 			#header nav ul li {
-				padding-left: 0;
-				border-left: solid 1px #ffffff;
-			}
+			padding-left: 0;
+			/* border-left: solid 1px #ffffff; */ /* Remove or comment out this line */
+		}
 
-				#header nav ul li:first-child {
-					border-left: 0;
+			image.png				#header nav ul li:first-child {
+					/* border-left: 0; */ /* Remove or comment out this line */
 				}
 
 				#header nav ul li a {
@@ -1366,6 +1375,8 @@ input, select, textarea {
 					letter-spacing: 0.2rem;
 					font-size: 0.8rem;
 					border-bottom: 0;
+					/* Add border to all 'a' tags */
+					border-left: solid 1px #ffffff;
 				}
 
 					#header nav ul li a:hover {
@@ -1376,9 +1387,24 @@ input, select, textarea {
 						background-color: rgba(255, 255, 255, 0.175);
 					}
 
+				/* Add these new rules for the separator */
+				#header nav ul li:first-child a {
+					/* Remove border from the 'a' tag in the first 'li' */
+					border-left: 0;
+					/* Keep existing border-radius if applied previously */
+					border-top-left-radius: 4px; 
+					border-bottom-left-radius: 4px;
+				}
+
+				#header nav ul li:last-child a {
+					/* Keep existing border-radius if applied previously */
+					border-top-right-radius: 4px;
+					border-bottom-right-radius: 4px;
+				}
+
 		#header nav.use-middle:after {
 			content: '';
-			display: block;
+			display: none; /* Hide the pseudo-element */
 			position: absolute;
 			top: 0;
 			left: calc(50% - 1px);
@@ -1746,5 +1772,44 @@ input, select, textarea {
     }
     .sub-skill .skill-name {
         padding-left: 1em; /* Adjust indentation for smaller screens if needed */
+    }
+}
+
+/* Modal Navigation Styling */
+.modal-nav {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 10001;
+    display: flex; /* This makes the children (links) align in a row */
+    justify-content: flex-start;
+}
+
+.modal-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-right: 1em; /* Spacing between links */
+    padding: 0.25em 0;
+    border-bottom: 1px solid transparent;
+}
+
+.modal-nav a:last-child {
+    margin-right: 0; /* No margin for the last link */
+}
+
+.modal-nav a:hover {
+    border-bottom-color: #fff; /* Or your desired hover color */
+}
+
+/* Adjustments for smaller screens if necessary */
+@media screen and (max-width: 736px) {
+    .modal-nav {
+        top: 0.5em;
+        left: 0.5em;
+    }
+    .modal-nav a {
+        font-size: 0.7em;
+        margin-right: 0.5em;
     }
 }
