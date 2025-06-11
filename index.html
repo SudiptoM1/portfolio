@@ -199,19 +199,56 @@
 							</p>
 						  <div class="project-summary">
 							  <h3>Autonomous Valve Tester</h3>
-							  <div style="text-align: center;"> <!-- Added a wrapper div for centering -->
-								  <img src="images/valve_subassembly.png" alt="Autonomous Valve Tester - Subassembly" style="width: 48%; display: inline-block; margin-right: 1%; vertical-align: top;" />
-								  <img src="images/full_assembly.png" alt="Autonomous Valve Tester - Full Assembly" style="width: 48%; display: inline-block; margin-left: 1%; vertical-align: top;" />
-							  </div>
-							  <p>Senior design project in collaboration with Belimo Aircontrols, automating the critical angle test for ball valves.</p>
+
+							  <!-- Main Project Image -->
+							  <img src="images/full_assembly.png" alt="Autonomous Valve Tester - Main View" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 2em auto;" />
+
+							  <!-- Introduction/Overview -->
+							  <p>Senior design project in collaboration with Belimo Aircontrols, automating the critical angle test for ball valves. This project involved...</p>
 							  <p>Youtube link: <a href="https://www.youtube.com/watch?v=9ApS5geGOWE&t=136s" target="_blank">https://www.youtube.com/watch?v=9ApS5geGOWE&t=136s</a> </p>
-                              <ul>
-                                <li>Designed a custom fixture in Autodesk Inventor and fabricated components using 3D printing and milling/lathing to securely hold a 2-way 1/2" FNPT ball valve for automated testing.</li>
-								<li>Validated the design with Autodesk Inventor Finite Element Analysis to ensure safe and reliable system operation.</li>
-                                <li>Developed a LabVIEW program to control the actuator, collect data from the encoder and flowmeter, and log results for analysis.</li>
-                                <li>Successfully demonstrated the system's capability to reduce test time by 75% compared to manual methods, while improving accuracy and repeatability.</li>
-                              </ul>
-							  <!-- <a href="#project1" class="button">View Project Details</a> -->
+
+							  <!-- Detailed Section 1: e.g., Mechanical Design -->
+							  <h4>Mechanical Design and Construction</h4>
+							  
+							  <!-- Existing Mechanical Design Content -->
+							  <div class="project-detail-flex">
+								  <div class="text-content">
+									  <p>This valve tester fixture was mechanically designed to minimize human interaction in order to conduct the critical angle test autonomously. The critical angle test measures the angle at which the valve stem of a ball valve has to rotate before 0.5 mL/min of water flow rate is detected through the valve. Since Belimo already had their own testing frame rack, the design had to be as lightweight and corrosion resistant as possible, as the components would be interacting with water while simultaneously fitting within a constrained space, as shown in the setup above. </p>
+									  <p>The components of the subassembly were selected in order to automate the tedious process of measuring angles of the valves. The actuator chosen was of the model GRCX24-MFT and was provided to us by Belimo. Using this actuator makes our design modular as it allows for future testing for Characterized Control Valves (CCV) of up to 2 1/2 inches in diameter, although our current test is for 1/2 inch CCV's. We also have a A50H-2048-HZCP9-RL2 fully hollow incremental encoder in order to measure our leakage angle. Finally, we have a Bronkhorst L23 flowmeter in order to detect the 0.5 mL/min flow rate through the valve. </p>
+								  </div>
+								  <div class="image-content">
+									  <img src="images/valve_subassembly.png" alt="Mechanical Detail 1" style="width: 100%; max-width: 300px; margin-bottom: 1em;" />
+									  <!-- You can add more images or captions here -->
+								  </div>
+							  </div>
+
+							  <!-- New FEA Subsection -->
+							  <h5>FEA (Finite Element Analysis)</h5>
+							  <p>FEA was performed on the subassembly to ensure the framing of the subassembly would be structurally sufficient as it would be held horizontally. FEA was performed on instrumental parts such as the top and bottom frame plates, as well as the encoder frame plates to ensure that the system would be compact. The images shown are displacement results showining minimal displacement as a result of the loads exerted on them, meaning our subassembly is structurlly sound.</p>
+							  <div class="fea-images-container" style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 1.5em;">
+								  <img src="images/FEA_1.png" alt="FEA Result 1 - Displacement" style="width: 32%; height: auto; border: 1px solid #eee;" />
+								  <img src="images/FEA_2.png" alt="FEA Result 2 - Displacement" style="width: 32%; height: auto; border: 1px solid #eee;" />
+								  <img src="images/FEA_3.png" alt="FEA Result 3 - Displacement" style="width: 32%; height: auto; border: 1px solid #eee;" />
+							  </div>
+
+							  <!-- Detailed Section 2: e.g., Electrical/Software Design -->
+							  <h4>Electrical and Software Integration</h4>
+							  <div class="project-detail-flex">
+								  <div class="text-content">
+									  <p>Details about the LabVIEW program, sensor integration, data acquisition, and control systems. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									  <ul>
+										  <li>Developed a LabVIEW program to control the actuator...</li>
+										  <li>Integrated safety features...</li>
+									  </ul>
+								  </div>
+								  <div class="image-content">
+									  <img src="images/placeholder_electrical.png" alt="Electrical Detail 1" style="width: 100%; max-width: 300px; margin-bottom: 1em;" /> 
+									  <!-- Replace with actual image -->
+								  </div>
+							  </div>
+
+							  <!-- Add more sections as needed (e.g., Results, Challenges) -->
+
 						  </div>
 						  <div class="project-summary">
 							  <img src="images/LSPACE.png" alt="NASA LSPACE Project Image" style="width: 50%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 1em;" />
