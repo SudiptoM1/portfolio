@@ -48,6 +48,7 @@
 						<!-- Intro -->
 							<article id="intro">
 								<div class="modal-nav">
+									<a href="#bio">Bio</a>
 									<a href="#skills">Skills</a>
 									<a href="#work">Work</a>
 									<a href="#about">Resume</a>
@@ -76,6 +77,7 @@
 							<article id="skills">
 								<div class="modal-nav">
 									<a href="#intro">Profile</a>
+									<a href="#bio">Bio</a>
 									<a href="#work">Work</a>
 									<a href="#about">Resume</a>
 									<a href="#contact">Contact</a>
@@ -189,6 +191,7 @@
 							<article id="work">
 								<div class="modal-nav">
 									<a href="#intro">Profile</a>
+									<a href="#bio">Bio</a>
 									<a href="#skills">Skills</a>
 									<a href="#about">Resume</a>
 									<a href="#contact">Contact</a>
@@ -204,7 +207,7 @@
 							  <img src="images/full_assembly.png" alt="Autonomous Valve Tester - Main View" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 2em auto;" />
 
 							  <!-- Introduction/Overview -->
-							  <p>Senior design project in collaboration with Belimo Aircontrols, automating the critical angle test for ball valves. This project involved...</p>
+							  <p>Senior design project in collaboration with Belimo Aircontrols, automating the critical angle test for ball valves.</p>
 							  <p>Youtube link: <a href="https://www.youtube.com/watch?v=9ApS5geGOWE&t=136s" target="_blank">https://www.youtube.com/watch?v=9ApS5geGOWE&t=136s</a> </p>
 
 							  <!-- Detailed Section 1: e.g., Mechanical Design -->
@@ -216,9 +219,11 @@
 									  <p>This valve tester fixture was mechanically designed to minimize human interaction in order to conduct the critical angle test autonomously. The critical angle test measures the angle at which the valve stem of a ball valve has to rotate before 0.5 mL/min of water flow rate is detected through the valve. Since Belimo already had their own testing frame rack, the design had to be as lightweight and corrosion resistant as possible, as the components would be interacting with water while simultaneously fitting within a constrained space, as shown in the setup above. </p>
 									  <p>The components of the subassembly were selected in order to automate the tedious process of measuring angles of the valves. The actuator chosen was of the model GRCX24-MFT and was provided to us by Belimo. Using this actuator makes our design modular as it allows for future testing for Characterized Control Valves (CCV) of up to 2 1/2 inches in diameter, although our current test is for 1/2 inch CCV's. We also have a A50H-2048-HZCP9-RL2 fully hollow incremental encoder in order to measure our leakage angle. Finally, we have a Bronkhorst L23 flowmeter in order to detect the 0.5 mL/min flow rate through the valve. </p>
 								  </div>
-								  <div class="image-content">
-									  <img src="images/valve_subassembly.png" alt="Mechanical Detail 1" style="width: 100%; max-width: 300px; margin-bottom: 1em;" />
-									  <!-- You can add more images or captions here -->
+								  <div class="image-content" style="display: flex; flex-direction: row; justify-content: space-around; align-items: flex-start;">
+									  <!-- Subassembly (CAD model) -->
+									  <img src="images/Subassembly.png" alt="Overall Subassembly CAD Model" style="width: 60%; max-width: 500px; height: auto; margin-bottom: 1em; border: 1px solid #eee;" />
+									  <!-- Valve Subassembly (real photo) -->
+									  <img src="images/valve_subassembly.png" alt="Valve Subassembly Real Photo" style="width: 48%; max-width: 500px; height: auto; margin-bottom: 1em; border: 1px solid #eee;" />
 								  </div>
 							  </div>
 
@@ -235,15 +240,15 @@
 							  <h4>Electrical and Software Integration</h4>
 							  <div class="project-detail-flex">
 								  <div class="text-content">
-									  <p>Details about the LabVIEW program, sensor integration, data acquisition, and control systems. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-									  <ul>
-										  <li>Developed a LabVIEW program to control the actuator...</li>
-										  <li>Integrated safety features...</li>
-									  </ul>
+									  <p>The way I devloped our control systems was to first calibrate everything, and then start the water flow. The actuator, which is mechanically connected to the valve stem of the ball valve, starts off fully shut off, and then it'd rotate incrementally by 0.5 degrees. As the actuator rotates by the said amount, the encoder is recording the measurements to verify the angle of the protractor and the actuator (as a means of redundancy). This process continues until the flowmeter detects a flow rate of at least 0.5 mL/min, at which at that point, the valve is said to be leaking. The program stops, and the final angle measurements are recorded through LabVIEW.</p>
+									  <img src="images/Electrical_schematic.png" alt="Electrical Schematic" style="width: 100%; max-width: 900px; margin-top: 1em; margin-bottom: 1em; display: block; margin-left: auto; margin-right: auto; border: 1px solid #eee;" />
+									  <div class="labview-images-container" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 10px; margin-bottom: 1.5em;">
+										<img src="images/LabVIEW_1.png" alt="LabVIEW Code Part 1" style="width: 48%; max-width: 1575px; height: auto; border: 1px solid #eee; margin-bottom: 10px;" />
+										<img src="images/LabVIEW_2.png" alt="LabVIEW Code Part 2" style="width: 48%; max-width: 1575px; height: auto; border: 1px solid #eee; margin-bottom: 10px;" />
+									  </div>
 								  </div>
 								  <div class="image-content">
-									  <img src="images/placeholder_electrical.png" alt="Electrical Detail 1" style="width: 100%; max-width: 300px; margin-bottom: 1em;" /> 
-									  <!-- Replace with actual image -->
+									  <!-- Removed placeholder image -->
 								  </div>
 							  </div>
 
@@ -406,15 +411,16 @@
 					  </div>
 					  </article>
 						<!-- About -->
-							<article id="about">
+							<article id="about" style="width: 67.5rem;">
 								<div class="modal-nav">
 									<a href="#intro">Profile</a>
+									<a href="#bio">Bio</a>
 									<a href="#skills">Skills</a>
 									<a href="#work">Work</a>
 									<a href="#contact">Contact</a>
 								</div>
 								<h2 class="major">Resume</h2>
-								<span class="image main"><img src="images/Sudipto_s_Resume.png" alt="Sudipto's Resume" style="width: 100%; height: auto;" /></span>
+								<span class="image main"><img src="images/Resume.png" alt="Sudipto's Resume" style="width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;" /></span>
 								<!-- All previous text content within this article tag has been removed -->
 							</article>
 
@@ -422,6 +428,7 @@
 							<article id="contact">
 								<div class="modal-nav">
 									<a href="#intro">Profile</a>
+									<a href="#bio">Bio</a>
 									<a href="#skills">Skills</a>
 									<a href="#work">Work</a>
 									<a href="#about">Resume</a>
